@@ -10,5 +10,7 @@ def on_on_chat(hi):
         agent.move(LEFT, 1)
         agent.move(UP, 1)
         agent.move(FORWARD, 1)
-        hi = hi - 2
+        hi = hi - 2 
+    if hi == 0:
+        agent.place(DOWN)  
 player.on_chat("run", on_on_chat)
