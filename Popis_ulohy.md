@@ -1,0 +1,1 @@
+Robim o checkers aj aby sa automatycky postaval aj hral ze do chatu napisem pohyb a on pozrie ci je legalny. a ak stihnem tak spravim aby potom zistil ci aj niekto vyhral všetko skontroloval a postaval to naspet.
