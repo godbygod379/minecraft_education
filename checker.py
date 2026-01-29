@@ -10,10 +10,10 @@ def on_on_chat():
         agent.turn(LEFT_TURN)
         agent.move(FORWARD, 1)
         agent.turn(LEFT_TURN)
-        agent.turn(LEFT_TURN)
-        agent.move(FORWARD, 1)
-        agent.turn(RIGHT_TURN)
-        agent.move(UP, 1)
+    agent.turn(LEFT_TURN)
+    agent.move(FORWARD, 1)
+    agent.turn(RIGHT_TURN)
+    for i in range(4):
         figure_odd_line()
         agent.turn(LEFT_TURN)
         agent.move(FORWARD, 1)
@@ -22,8 +22,6 @@ def on_on_chat():
         agent.turn(RIGHT_TURN)
         agent.move(FORWARD, 1)
         agent.turn(RIGHT_TURN)
-        for i in range(5):
-
 
 def odd_line():
     for i in range(4):
@@ -44,25 +42,29 @@ def even_line():
         agent.move(FORWARD, 1)
 
 def figure_odd_line():
-    agent.move(FORWARD, 1)
-    agent.set_slot(3)
-    agent.place(DOWN)
     agent.move(FORWARD, 2)
-    agent.place(DOWN)
+    agent.set_slot(3)
+    agent.place(BACK)
+    agent.move(FORWARD, 2)
+    agent.place(BACK)
     agent.move(FORWARD, 4)
     agent.set_slot(4)
-    agent.place(DOWN)
-    agent.move(FORWARD, 2)
+    agent.place(BACK)
+    agent.move(FORWARD, 1)
 
 def figure_even_line():
-    agent.move(FORWARD, 1)
-    agent.set_slot(4)
-    agent.place(DOWN)
     agent.move(FORWARD, 2)
-    agent.place(DOWN)
+    agent.set_slot(4)
+    agent.place(BACK)
+    agent.move(FORWARD, 2)
+    agent.place(BACK)
     agent.move(FORWARD, 4)
     agent.set_slot(3)
-    agent.place(DOWN)
-    agent.move(FORWARD, 2)
+    agent.place(BACK)
+    agent.move(FORWARD, 1)
+
 
 player.on_chat("run", on_on_chat)
+
+
+
