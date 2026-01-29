@@ -1,70 +1,48 @@
-def on_on_chat():
-    agent.teleport_to_player()
+E=AIR
+W=WHITE_CONCRETE
+B=BLACK_CONCRETE
 
-    for chessboard in range(4):
-        odd_line()
-        agent.turn(RIGHT_TURN)
-        agent.move(FORWARD, 1)
-        agent.turn(RIGHT_TURN)
-        even_line()
-        agent.turn(LEFT_TURN)
-        agent.move(FORWARD, 1)
-        agent.turn(LEFT_TURN)
-    agent.turn(LEFT_TURN)
-    agent.move(FORWARD, 1)
-    agent.turn(RIGHT_TURN)
-    for i in range(4):
-        figure_odd_line()
-        agent.turn(LEFT_TURN)
-        agent.move(FORWARD, 1)
-        agent.turn(LEFT_TURN)
-        figure_even_line()
-        agent.turn(RIGHT_TURN)
-        agent.move(FORWARD, 1)
-        agent.turn(RIGHT_TURN)
+board = [
+        [WHITE_CONCRETE,AIR,W,AIR,W,AIR,W,AIR],
+        [AIR,AIR,AIR,AIR,AIR,AIR,AIR,AIR],
+        [AIR,AIR,AIR,AIR,AIR,AIR,AIR,AIR],
+        [AIR,AIR,AIR,AIR,AIR,AIR,AIR,AIR],
+        [AIR,AIR,AIR,AIR,AIR,AIR,AIR,AIR],
+        [AIR,AIR,AIR,AIR,AIR,AIR,AIR,AIR],
+        [AIR,AIR,AIR,AIR,AIR,AIR,AIR,AIR],
+        [AIR,AIR,AIR,AIR,AIR,AIR,AIR,AIR]
+    ]
 
-def odd_line():
-    for i in range(4):
-        agent.move(FORWARD, 1)
-        agent.set_slot(1)
-        agent.place(DOWN)
-        agent.move(FORWARD, 1)
-        agent.set_slot(2)
-        agent.place(DOWN)
+def draw_board(x, y, z):
+    for i in range(8):
+        for j in range(8):
+            if (i + j) % 2 == 0:
+                color = WHITE_CONCRETE
+            else:
+                color = BLACK_CONCRETE
+            blocks.place(color, world(x+i,y,z+j))
 
-def even_line():
-    for i in range(4):
-        agent.set_slot(1)
-        agent.place(DOWN)
-        agent.move(FORWARD, 1)
-        agent.set_slot(2)
-        agent.place(DOWN)
-        agent.move(FORWARD, 1)
+def draw_pieces(x, y, z, board):
+    player.say("Drawing pieces")
 
-def figure_odd_line():
-    agent.move(FORWARD, 2)
-    agent.set_slot(3)
-    agent.place(BACK)
-    agent.move(FORWARD, 2)
-    agent.place(BACK)
-    agent.move(FORWARD, 4)
-    agent.set_slot(4)
-    agent.place(BACK)
-    agent.move(FORWARD, 1)
+    for i in range(8):
+        for j in range(8):
+            player.say("hi")
+            block = board[i][j]
+            player.say(block)
+            blocks.place(block, world(x+i,y+1,z+j))
+            blocks.place(block, world(x+i,y+2,z+j))
 
-def figure_even_line():
-    agent.move(FORWARD, 2)
-    agent.set_slot(4)
-    agent.place(BACK)
-    agent.move(FORWARD, 2)
-    agent.place(BACK)
-    agent.move(FORWARD, 4)
-    agent.set_slot(3)
-    agent.place(BACK)
-    agent.move(FORWARD, 1)
+BOARD_X=10
+BOARD_Y=280
+BOARD_Z=10
+
+# player.say(board[0][0])
+# player.say(W)
+# draw_board(BOARD_X, BOARD_Y, BOARD_Z)
+draw_pieces(BOARD_X, BOARD_Y, BOARD_Z, board)
 
 
-player.on_chat("run", on_on_chat)
-
-
-
+    # for i in range(8):
+    #     for j in range(8):
+    #         blocks.place(, world(x, y, z))
